@@ -1,0 +1,46 @@
+Magento 2 Dependency Injection
+- A class depends on other classes.
+- Dependency Injection is to inject the dependency into the class from another source.
+
+	dependecy injection type 
+		- Contructore injection : the commonly used ways to inject dependencies, add a parameter in the class constructor to inject the dependency. 
+		- Method Injection :  Method injection can be used best when the dependency may vary on each method call. When an object requires performing specific actions on a dependency that cannot be injectable. For ex : observer.
+
+	Dependency types/Dependency Injection Object Types
+		- Injectable : Injectable objects in Magento 2 are classes that can be instantiated and managed by the Dependency Injection (DI) container. They are typically used for services, repositories, and other core functionalities.
+		- Non-injectable. : those that cannot be automatically instantiated and managed by the DI container. These objects are typically instantiated using the new keyword directly in the code. Non-injectable objects may still have dependencies, but their instantiation is not controlled by the DI container.
+
+	Other
+		- Object manager : it creates hidden dependencies that are not required. it doesn’t follow the M2 Development Processes. The create () method of Object Manager can create your class’s objects, get, and pass the value for constructor parameter from di.xml files, we don’t recommend using it. 
+		- Compiling dependencies  : Magento uses code compiler tools to collect all class dependency information and stores that information in files. The object manager uses that information during the class creating process to create concrete objects in the application.
+
+		The compiler helps generate service classes that do not exist in the codebase (proxies, factories, and interceptors) but are declared in code or in a configuration.
+
+Magento 2 Plugin
+- allows for modifying the behavior of a public class or method.
+- which you can execute some code before, after, and around the code/target class’s function
+- plugin sortOrder. Plugins that call the same method run them using this order.
+	3 methods in Plugin
+	before - beforeDispatch()
+	around - aroundDispatch()
+	after - afterDispatch()
+Limitations Of Plugin
+	Final methods
+	Final classes
+	Non-public methods
+	Class methods (such as static methods)
+	__construct and __destruct
+	Virtual types
+
+Magento 2 Preference
+- implement some interfaces or to rewrite/override the existing PHP classes and their methods. 
+- you can extend a core class to rewrite the functions of that class; the new class is expected to be a complete implementation of the extended class
+
+Magento 2 Event and Observer 
+- Using events and observers, you can run your custom code in response to a specific event or even a custom event.
+- execute the multiple numbers of observers for a single event trigger
+Event : Events are dispatched by modules when certain actions are triggered
+Observer : Observers are the particular classes that control the general behavior, performance, or change in the business logic of the store. They are executed whenever a specific event for which they were set to listen is triggered.
+
+
+https://webkul.com/blog/plugins-observers-and-preference-in-magento2/
