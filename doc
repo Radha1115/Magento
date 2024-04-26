@@ -1,0 +1,178 @@
+What is Magento 2?
+    • Magento 2 is an open-source E-commerce platform
+    • It is a useful software for the online business, and currently a largest E-commerce platform in the world. 
+
+Why Used Magento 2?
+    • Magento 2 is very simple, versatile, and quick to use.
+    • Magento 2 is a multi-store and multi-language tool.
+    • Magento 2 is the most used CMS (Content Management System) to create online stores around the world by its powerful, scalable architecture.
+    • t provides easy admin panel, which is very handy for customization, product creation, filtering data, and navigation.
+
+Advantage
+    • Category and product creation is much easier and quicker than the other.
+    • Magento 2 offers amazing Admin interface, which is very simplified. Non-technical admin likes this simplified interface.
+    • It offers various templates and theme that allows both the Magento designer and store owner to customize the look and feel and even also optimize it for the Smartphone.
+      
+Disadvantage & limitations
+    • Development expertise is required due to its complexity.
+    • Magento 2 Community Edition is free, whereas Magento 2 Enterprise Edition is paid. You have to pay for Magento 2 Enterprise Edition.
+    • All the extensions of Magento 1.x will not work on Magento 2.0. You need to purchase the extensions and integrate them into Magento 2.
+
+Architecture of Magento 2
+    • Magento 2 has a Model View ViewModel (MVVM) architecture. This MVVM architecture provides much more robust separation between the Model and View layer, as it is closely related to the Model View Controller (MVC).
+	Model: 
+    • It holds the business logic of the application, and depends on an associated class - Resource Model for database access.
+    • The model responds to the request coming from the view.
+	View: 
+    • The view is a graphical interface that the users see on the screen. 
+    •  It is responsible for displaying the respond for the user request. 
+    • The view is a structure or a layout, which represents the data in a particular format
+	ViewModel : 
+    • The ViewModel interacts with the Model layer and exposes only necessary information to the View layer. 
+    • This is handled by module's Block classes in Magento 2. 
+            Controller : 
+    • is only responsible for handling the user flow means it receives requests and either tell the system to render a view or to redirect the user to another route.
+
+
+
+
+Magento 2 is split into four layers
+    1. Presentation Layer
+    2. Service Layer
+    3. Domain Layer
+    4. Persistence Layer
+1) Presentation Layer 
+    • The presentation layer is the uppermost layer of Magento 2 architecture. 
+    • It contains all controllers and View elements such as - layouts, templates, block, and css.js, etc. The presentation layer calls the service layer using service contracts, usually. It can overlap business logic.
+    • Web users, system administrators, are the user of the presentation layer
+2) Service Layer
+    • The service layer is the middle layer among the presentation layer and domain layer. 
+    • It provides a bridge between the presentation and domain layer and resource-specific data. 
+    • The service layer implements service contracts, which are defined using the PHP interface. 
+    • These service contracts allow us to add or change the business logic resource model without breaking the system. This is done using the dependency injection configuration file (di.xml).
+    • The service layer grants access to API (REST/SOAP or other modules). It resides above the domain layer and below the presentation layer.
+3) Domain Layer
+    • The domain layer is responsible for business logic.  The domain layer defines the generic Magento data objects or models which contain business logic. 
+    • This logic describes that which operation can be performed on the particular types of data, such as Customer object.
+    • To retrieve the data from the database with the MySQL calls, each domain-layer model has a reference to a resource model.
+4) Persistence Layer
+    • It describes the resource model, which is responsible for data extraction and modification in the database using the CRUD (Create, Read, Update, and DELETE) requests. 
+    • For completing these requests, the resource model contains the SQL code. 
+    • Additional business logic capabilities are also implemented.
+    • For example - database functions implementation and data validation.
+      
+Composer
+    • Composer is a dependency management tool for PHP.
+    • Composer allows us to declare the libraries on which our project depends, and it will also manage install/update for us.
+    • For Example - In our daily life, we create projects and then use the third party libraries to manage the dependencies as for sending Email or for creating PDF. 
+
+composer install - 
+    • It will be run at the very first time when we install any project. By using this command, all the dependencies are fetched.
+composer update - 
+    • It will check that what has been updated based on the composer.lock file. 
+    • The composer.lock file contains the information that what was installed previously.
+    • composer update will update your depencencies as they are specified in composer.json
+    • composer update is used to update the dependencies to their latest versions.
+
+
+How to install Magento 2
+There is three way to install magento 2
+    1. using download package.
+    2. using browser
+    3. using via composer. 
+
+System requirement of Magento 2
+    • Composer
+    • Elasticsearch
+    • PHP
+    • PHP - PHP 5.6+
+    • Database - MySQL 5.6+
+    • Web Server - Apache 2.2x or Nginx 1.7x
+    • Operating System – Cross-platform
+https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/prerequisites/overview
+What are modes in Magento 2?
+When you change to developer or production mode, we clear the contents of following directories:
+var/cache
+generated/metadata
+generated/code
+var/view_preprocessed
+pub/static/frontend
+
+Default mode is not used for the development and production environment. When in default mode, Magento 2: 
+    • caches static files:
+    • does not display errors in the clipboard (on the screen), but in the log file (magento2_folder / var / log).
+Developer mode is ideal for developers. When in developer mode Magento 2:
+    • does not cache static files;
+    • displays a detailed error log on the screen;
+    • automatically compiles the code;
+    • allows advanced code debugging.
+    • works slowly.
+Production mode is used in the production environment. When in production mode, Magento 2:
+    • caches all view-files;
+    • doesn't change image size, when generating pages;
+    • stores all errors in the log file;
+    • allows integrating JavaScript into a bundle:
+    • works fast.
+    • You cannot enable or disable cache types in the Admin
+    • Developer settings are unavailable (Stores > Settings > Configuration > Advanced > Developer)
+    • You cannot change locale configurations for any scope using the Admin.
+Maintenance mode: The maintenance mode limits or prevents access to a site during improvements, updates, and configuration tasks.
+    • Site visitors are redirected to a default Service Temporarily Unavailable page
+    • The var/ directory contains the .maintenance.flag file
+    • You can limit visitor access based on IP addresses
+
+Types Of Caches In Magento 2
+config: 1
+                        layout: 1
+                    block_html: 1
+                   collections: 1
+                    reflection: 1
+                        db_ddl: 1
+               compiled_config: 1
+             webhooks_response: 1
+                           eav: 1
+         customer_notification: 1
+ graphql_query_resolver_result: 1
+            config_integration: 1
+        config_integration_api: 1
+                  admin_ui_sdk: 1
+                     full_page: 1
+                   target_rule: 1
+             config_webservice: 1
+                     translate: 1
+1) Diff c:c & c:f
+- The c:c cleans only the cache that Magento is actually using (doesn't clean disabled cache types). The c:f command cleans all the cache storage
+
+2) Indexer
+Update on save (realtime): 
+    • Indexed data is updated when a change is made in the Admin. 
+    • (For example, the category products index is reindex after products are added to a category in the Admin.) This is the default.
+    • he index is set to update whenever a change is saved.
+Update by schedule (schedule): 
+    • Data is indexed according to the schedule set by your cron job.
+    • The index is set to update on schedule according to a cron job.
+3 )Code compilation includes the following (in no particular order):
+    • Application code generation (factories, proxies)
+    • Area configuration aggregation (optimized dependency injection configurations per area)
+    • Interceptor generation (optimized code generation of interceptors)
+    • Interception cache generation
+    • Repositories code generation (generated code for APIs)
+    • Service data attributes generation (generated extension classes for data objects)
+
+4) What is module and how to create
+Magento 2 module is the structural element that makes up the code base of the whole system. The module is essential in customizing core functionality according to your application requirements
+      Create the module folder.
+    • Create the etc/module.xml file.
+    • Create the registration.php file.
+    • Run the bin/magento setup:upgrade script to install the new module.
+      
+5) declarative schem
+    • This declarative schema feature basically simplifies installing and updating the schema process.
+    • In the earlier version of Magento, this process was a bit complex.
+    • For example, in the earlier version first we had to create InstallSchema or InstallData script for creating either a new database table or add new data in an existing database table.
+6) what is virtual type
+    • Virtual types are a way of injecting dependencies into some of the existing classes without affecting other classes. To explain this via a practical example, let's take a look at the following virtual type defined in the app/etc/di.xml file:
+    • Creating a virtual type is like creating a subclass of an existing class except for the fact that it's done in di.xml and not in code.
+    • Example. https://magento.stackexchange.com/questions/33103/what-is-the-difference-between-type-and-virtualtype 
+    • https://webkul.com/blog/virtual-types-in-magento-2/
+7) what is di
