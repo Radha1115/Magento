@@ -1,0 +1,66 @@
+
+1) Diff c:c & c:f
+- The c:c cleans only the cache that Magento is actually using (doesn't clean disabled cache types). The c:f command cleans all the cache storage
+
+2) Diff update on save & update on schedule.
+- Update on Save :The index is set to update whenever a change is saved.
+
+Update on Schedule :The index is set to update on schedule according to a cron job.
+
+On a small store,Update on Save is fine and will add very little load.
+If you have a larger store with multiple admins, working in the backend then your indexes could be getting triggered constantly. Update on Save ties up MySQL and for large stores can take hours to complete. To avoid this, it is recommended setting your indexers to Update on Schedule. Then only run the indexers as needed (via command) or via a scheduled cron task.
+
+customization approaches :
+Patches
+Plugins / Interceptors
+Observers
+Preferences
+
+3)Preference and plugin 
+- preference : Preference is used for overriding class, 
+It can be used to rewrite a class from another module to point at the implementation, making the class global. You can use the preference from di.xml to override a public or protected method from a core class. 
+
+- Plugin is used for adding functionality before, after, and around methods.
+
+
+
+
+what is data patch
+declarative schema
+improve magento performance steps
+what is mvc
+what is virtual type
+Virtual types are a way of injecting dependencies into some of the existing classes without affecting other classes. To explain this via a practical example, let's take a look at the following virtual type defined in the app/etc/di.xml file:
+Creating a virtual type is like creating a subclass of an existing class except for the fact that it's done in di.xml and not in code.
+what is module and how to create
+how to improve magento performance
+what are limitation of magento
+how to create api
+what is viewmodel
+what is eav.
+what are the magic method in magento 
+waht is factory.
+
+
+
+
+
+
+
+
+
+
+
+Patches
+I wouldn't officially say this is the best approach. It's conditional. There are cases where a modification you are making is just fixing a bug with Magento or a third party module. At least with non Magento Cloud sites, you can install the cweagans/composer-patches composer package (see link below), to gain the ability to patch composer installed modules pretty easily:
+
+Github - cweagans/composer-patches
+
+Pros
+
+Instead of creating an entire module with a preference/plugin to fix something, you could just create a patch if you know that the change should be there anyway
+If/when the original module vendor applies the fix and your patch no longer applies, it can be skipped from being applied automatically, or fail loudly in a development environment so you can address properly
+Cons
+
+If a vendor changes the files you are patching but does not introduce your same fix, your patch could no longer be applied
+
