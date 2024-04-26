@@ -1,0 +1,26 @@
+GitHub :
+
+GitHub is a cloud-based platform where you can store, share, and work together with others to write code.
+
+Pull all the latest changes made by your collaborators from the remote repository on GitHub.
+Push back your own changes to the same remote repository on GitHub.
+
+https://github.com/joshnh/Git-Commands?tab=readme-ov-file
+
+git init 
+git clone url
+git status
+git add -A or git add 
+git commit -m 'msg'
+git push -u origin bname
+
+
+git pull origin bname
+git remote add origin url
+
+if three developers are working on a project, they can create their own branches and work on them as the branches are isolated, so everyone can work in their branch.
+
+A branch can be:
+
+Local – only on your local machine.
+Remote – it is on a remote location, for example in the GitHub repo.
