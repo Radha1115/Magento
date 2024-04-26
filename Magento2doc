@@ -42,5 +42,33 @@ Magento 2 Event and Observer
 Event : Events are dispatched by modules when certain actions are triggered
 Observer : Observers are the particular classes that control the general behavior, performance, or change in the business logic of the store. They are executed whenever a specific event for which they were set to listen is triggered.
 
+ Plugin vs Observer :
+ - Observers can edit both private and protected methods, but plugins can only modify public methods.
+ - Although there is a sort order for plugins, there is none for observers.
+ - Only events that have already been delivered in Magento can be added to the observer list. In this case, plugins are more flexible.
+ - Plugins are required when we need to change Magento core functionality (for example, adding more data to the order collection object). We can’t use Observer in this instance.
 
-https://webkul.com/blog/plugins-observers-and-preference-in-magento2/
+ Plugin vs Preference 
+ - Preference is used for overriding class, Plugin is used for adding functionality before, after, and around methods.
+ - You can use the preference from di.xml to override a public or protected method from a core class. plugin can't.
+
+Magento 2 Virtual type
+- Virtual types are a way of injecting dependencies into some of the existing classes without affecting other classes. 
+- To explain this via a practical example, let's take a look at the following virtual type defined in the app/etc/di.xml file:
+- Creating a virtual type is like creating a subclass of an existing class except for the fact that it's done in di.xml and not in code.
+- Example. https://magento.stackexchange.com/questions/33103/what-is-the-difference-between-type-and-virtualtype 
+- https://webkul.com/blog/virtual-types-in-magento-2/
+
+Magento 2 Factories Vs Repository
+- Factories are service classes that instantiate non-injectable classes, that is, models that represent a database entity. 
+Magento’s object manager encounters a class name that ends in the word ‘Factory’, it will automatically generate the Factory class in the var/generation folder if the class does not already exist. You will see the factory class in
+- Repository : A repository object is responsible for reading and writing your object information to an object store
+
+Use Factories to create new entities Repositories do not come with methods to create a new entity, so in that case you will need a factory. 
+But use the factory for the interface, such as Magento\Catalog\Api\Data\ProductInterfaceFactory - it will create the right implementation based on DI configuration.
+Then use the repository->save() method to save it.
+Repositories do not come with methods to create a new entity, so in that case, you will need a factory.
+
+Magento 2 viewModel
+- View model is class that we inject to phtml, so that require and related data could be access from it.
+- View Model helps us to avoid unnecessary overriding of the block class
