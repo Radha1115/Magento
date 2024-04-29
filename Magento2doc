@@ -72,3 +72,19 @@ Repositories do not come with methods to create a new entity, so in that case, y
 Magento 2 viewModel
 - View model is class that we inject to phtml, so that require and related data could be access from it.
 - View Model helps us to avoid unnecessary overriding of the block class
+
+Differences Between MVC and MVVM 
+The main differences between MVC and MVVM are, as follows: 
+
+Separation of Concerns 
+- MVC separates the application into three main components:
+- Model: Represents the data and business logic of the application.  
+- View: Handles the presentation layer and user interface.  
+- Controller: Manages the interaction between the Model and the View.
+- Data Binding : MVC typically does not have built-in data binding capabilities. The View relies on the Controller to retrieve data from the Model and update the UI manually.
+
+- MVVM also emphasize separation of concerns, but with three different components:  
+- Model: Represents the data and business logic, similar to MVC.  
+- View: Handles the UI and presentation layer, akin to MVC.  
+- ViewModel: Acts as an intermediary between the View and the Model, exposing data and commands for data binding. 
+- Data Binding  : MVVM introduces powerful data binding capabilities. Data binding establishes a connection between the View and the ViewModel, allowing automatic synchronisation of data between them. When data changes in the ViewModel, the View is automatically updated, and user interactions trigger commands in the ViewModel.
