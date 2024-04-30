@@ -88,3 +88,13 @@ Separation of Concerns
 - View: Handles the UI and presentation layer, akin to MVC.  
 - ViewModel: Acts as an intermediary between the View and the Model, exposing data and commands for data binding. 
 - Data Binding  : MVVM introduces powerful data binding capabilities. Data binding establishes a connection between the View and the ViewModel, allowing automatic synchronisation of data between them. When data changes in the ViewModel, the View is automatically updated, and user interactions trigger commands in the ViewModel.
+
+EAV magento 2
+- EAV stands for Entity, Attribute and Value.
+- EAV is used because it is much more scalable than the usual normalised database structure. Developers can add attributes to any entity (product, category, customer, order etc) without modifying the core database structure. 
+
+Entity: The entity represents Magento data items such as products, categories, customers and orders. Each entity (product, category, etc.) will have its own entity record in the database.
+Attribute: The attributes represent data items that belong to an entity. For example, the product entity has attributes such as name, price, status and many more.
+Value: The value is the simplest to understand as it is simply a value linked to an attribute. For better understanding, let’s consider the product entity. Each product entity will have a series of attributes, one of them is the name attribute. Each product will then have a value for the name attribute (and all other attributes). 
+
+https://blog.magestore.com/entity-attribute-value-in-magento/
