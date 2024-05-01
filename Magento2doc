@@ -99,7 +99,66 @@ Value: The value is the simplest to understand as it is simply a value linked to
 
 https://blog.magestore.com/entity-attribute-value-in-magento/
 
+
 Magento 2 Products 
+1) Virtual products 
 - A virtual product in Magento is a product type used to sell non-tangible products such as memberships, services, gift cards, and subscriptions.
 - A virtual product in Magento is a product type used to sell non-tangible products such as memberships, services, gift cards, and subscriptions.
 - The only difference between a simple and virtual product is that the Magento virtual product type doesn’t have any weight.
+
+2)
+
+
+
+
+
+Why we are using api and purpose of api.
+diff bet interface and model 
+diff bet factory and repository
+meaning of cron group
+use of crontab.xml
+creating api steps.
+can we add asterisk in the admin side for that cronjob.
+
+
+diffe c:c and c:f
+diff indexer on save and indexer on schedule
+how to create patch
+plugin vs preference
+eav  vs flat
+which steps we are follow before upgrading magento
+what is tier price
+What type of area in magento
+=================
+what is data patch
+declarative schema
+improve magento 
+what is mvc
+what is virtual type
+what is di
+what is module and how to create
+how to improve magento performance
+what is observer
+what are limitation of magento
+how to create api
+what is viewmodel
+what is eav.
+what are the magic method in magento 
+waht is factory.
+bundle product fix price and dynamic price.
+catalog price rule and cart price rule diff
+diff simpla and grouped product.
+
+curl in php 
+$_server
+cookies and session
+Rules for PHP variables:
+types of loop
+breack and continue.
+diff == and ===
+diff now date and current date
+primary key and foreign key
+distinct
+limit 
+OFFSET
+joine types
