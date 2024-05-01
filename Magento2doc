@@ -98,3 +98,8 @@ Attribute: The attributes represent data items that belong to an entity. For exa
 Value: The value is the simplest to understand as it is simply a value linked to an attribute. For better understanding, let’s consider the product entity. Each product entity will have a series of attributes, one of them is the name attribute. Each product will then have a value for the name attribute (and all other attributes). 
 
 https://blog.magestore.com/entity-attribute-value-in-magento/
+
+Magento 2 Products 
+- A virtual product in Magento is a product type used to sell non-tangible products such as memberships, services, gift cards, and subscriptions.
+- A virtual product in Magento is a product type used to sell non-tangible products such as memberships, services, gift cards, and subscriptions.
+- The only difference between a simple and virtual product is that the Magento virtual product type doesn’t have any weight.
