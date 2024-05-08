@@ -3,7 +3,7 @@ Magento 2 Dependency Injection
 - Dependency Injection is to inject the dependency into the class from another source.
 
 	dependecy injection type 
-		- Contructore injection : the commonly used ways to inject dependencies, add a parameter in the class constructor to inject the dependency. 
+		- Contructor injection : the commonly used ways to inject dependencies, add a parameter in the class constructor to inject the dependency. 
 		- Method Injection :  Method injection can be used best when the dependency may vary on each method call. When an object requires performing specific actions on a dependency that cannot be injectable. For ex : observer.
 
 	Dependency types/Dependency Injection Object Types
@@ -125,9 +125,51 @@ Product Variety: It helps you manage various product types, including simple, co
 10. Fully SEO Centered
 11. Tools for Advertising and Marketing
 
+What is REst api 
+- applications have to communicate with other internal and third-party applications to perform various tasks.
+GET : Clients use GET to access resources that are located at the specified URL on the server. They can cache GET requests and send parameters in the RESTful API request to instruct the server to filter data before sending.
+
+
+What are difference bet theme and module
+- While a module is entirely based on code that extends the behavior of the platform, 
+- a theme changes its look and feel and a language package is used for translating text in your Magento 2 app.
+
+diff between virtual type and type.
+- Virtual types are useful if the only necessary modifications to a class are the classes that are injected.
+- Type adjusts existing classes, whereas Virtual Types creates a new class.
+- Type affect all the instances, whereas Virtual Type is equivalent of a sub class, where only the sub class has the altered argument values.
+- Virtual Type must extend a concrete class type.
+
+
+1) Diff c:c & c:f
+- The c:c cleans only the cache that Magento is actually using (doesn't clean disabled cache types). The c:f command cleans all the cache storage
+
+2) Diff update on save & update on schedule.
+- Update on Save :The index is set to update whenever a change is saved.
+
+Update on Schedule :The index is set to update on schedule according to a cron job.
+
+On a small store,Update on Save is fine and will add very little load.
+If you have a larger store with multiple admins, working in the backend then your indexes could be getting triggered constantly. Update on Save ties up MySQL and for large stores can take hours to complete. To avoid this, it is recommended setting your indexers to Update on Schedule. Then only run the indexers as needed (via command) or via a scheduled cron task.
 
 
 
+type of scope.
+
+Global	System-wide settings and resources that are available throughout the installation.
+Website	Settings and resources that are limited to the current website. Each website has a default store.
+Store	Settings and resources that are limited to the current store. Each store has a default root category (main menu) and default store view.
+Store View	Setting and resources that are limited to the current store view.
+
+what is customer scope
+if i want add to somthing on all cms page what we are use.
+addAttributeToFilter() is used to filter EAV collections. EAV-models are for example product, customer, sales, etc so you can use use addAttributeToFilter() for those entities.
+
+addFieldToFilter() is used to filter Non-EAV collections. addFieldToFilter() is mapped to addAttributeToFilter() for EAV entities. So you can just use addFieldToFilter().
+
+diff bet collection and collection factory.
+what is diff between radich cache and varnise cache.
+==========================================
 Why we are using api and purpose of api.
 diff bet interface and model 
 diff bet factory and repository
@@ -137,6 +179,10 @@ creating api steps.
 can we add asterisk in the admin side for that cronjob.
 
 
+when we'll use before method 
+diff plugin vs preference
+What is use of require-config.js
+===============================
 diffe c:c and c:f
 diff indexer on save and indexer on schedule
 how to create patch
@@ -161,20 +207,104 @@ what is viewmodel
 what is eav.
 what are the magic method in magento 
 waht is factory.
+
 bundle product fix price and dynamic price.
+- SKU if set as Fixed, the attribute behavious is the same as with other product types. If set as Dynamic, the SKU will be composed of the bundle's base and selected SKUs.
+- Price if set as Fixed, a bundle will have a base price with the taxes applied to it. You can also apply surcharges to bundle options that will infleunce the total  price when selected. If set as Dynamic, the total price will be composed from the product options prices.
+- Weight if set as Fixed, you can set a weight value to the whole bundle. If set as Dynamic, the weight will be calculated from the selected bundle options.
+
 catalog price rule and cart price rule diff
+- Catalog price rules are used to apply basically a discount on the products of your store. These rules get applied to category and products pages only.
+As it says, the promotion will be applied to the shopping cart page of your store. 
+- Cart price rule applies whenever a customer goes to the shopping cart page to checkout or the customer will apply the coupon code on the shopping cart page.Using cart price rule we can apply discount on products, we can provide free shipping and buy-one-get-one free promotions
+
 diff simpla and grouped product.
 
-curl in php 
-$_server
+curl in php : it deals with URLs. It's pronounced as: "see URL."
+cURL is a PHP library and command-line tool (similar to wget) that allows you to send and receive files over HTTP and FTP. 
+
+$_server :
+$_SERVER is a PHP super global variable which holds information about headers, paths, and script locations.
+
 cookies and session
+ - A cookie is often used to identify a user. A cookie is a small file that the server embeds on the user's computer. Each time the same computer requests a page with a browser, it will send the cookie too. With PHP, you can both create and retrieve cookie values.
+- The following example creates a cookie named "user" with the value "John Doe". The cookie will expire after 30 days (86400 * 30). The "/" means that the cookie is available in entire website (otherwise, select the directory you prefer).
+- We then retrieve the value of the cookie "user" (using the global variable $_COOKIE). We also use the isset() function to find out if the cookie is set:
+
+A session is a way to store information (in variables) to be used across multiple pages.
+Unlike a cookie, the information is not stored on the users computer.
+Session variables solve this problem by storing user information to be used across multiple pages  By default, session variables last until the user closes the browser.
+If you need a permanent storage, you may want to store the data in a database.
+A session is started with the session_start() function.
+Session variables are set with the PHP global variable: $_SESSION.
+destroy the session, use session_unset() and session_destroy():
+
+https://www.geeksforgeeks.org/what-are-the-difference-between-session-and-cookies-in-php/
+
 Rules for PHP variables:
+
 types of loop
+The while loop executes a block of code as long as the specified condition is true.
+The while loop does not run a specific number of times, but checks after each iteration if the condition is still true.
+
+The do...while loop will always execute the block of code at least once, it will then check the condition, and repeat the loop while the specified condition is true.
+do...while loop will execute its statements at least once, even if the condition is false
+
+The for loop - Loops through a block of code a specified number of times.
+The foreach loop - Loops through a block of code for each element in an array or each property in an object.
+
 breack and continue.
+- The break and continue both are used to skip the iteration of a loop. These keywords are helpful in controlling the flow of the program. Difference between break and continue:
+
+- The break statement terminates the whole iteration of a loop whereas continue skips the current iteration.
+- The break statement terminates the whole loop early whereas the continue brings the next iteration early.
+- In a loop for switch, break acts as terminator for case only whereas continue 2 acts as terminator for case and skips the current iteration of loop.
+
 diff == and ===
+==  This is a comparison operator that will return either true or false by comparing the values of variables on both sides.
+=== The triple equal sign comparison operator not only checks if the variables are equal in value, but it also confirms that they are of the same type before it returns true or false.
+
 diff now date and current date
-primary key and foreign key
-distinct
-limit 
-OFFSET
-joine types
+NOW() will fetch the current date and time both in format ‘YYYY-MM_DD HH:MM:SS’ while CURRENT_DATE() will fetch the date of the current day ‘YYYY-MM_DD’.
+However both functions is used to give the current or present day date and time details.
+
+primary key and foreign key : 
+The PRIMARY KEY constraint uniquely identifies each record in a table.
+Primary keys must contain UNIQUE values, and cannot contain NULL values.
+A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns (fields).
+
+The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
+A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+
+distinct : The SELECT DISTINCT statement is used to return only distinct (different) values.
+limit :  clause is used to specify the number of records to return. useful on large tables with thousands of records. Returning a large number of records can impact performance.
+OFFSET : return only 3 records, start on record 4 (OFFSET 3)"
+
+joine types :
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+- The INNER JOIN keyword selects records that have matching values in both tables.
+- The LEFT JOIN keyword returns all records from the left table (table1), and the matching records (if any) from the right table (table2).
+- The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records (if any) from the left table (table1).
+- The CROSS JOIN keyword returns all records from both tables (table1 and table2).
+- A self join is a regular join, but the table is joined with itself.
+- The UNION operator is used to combine the result-set of two or more SELECT statements.
+	- Every SELECT statement within UNION must have the same number of columns
+	- The columns must also have similar data types
+	- The columns in every SELECT statement must also be in the same order
+
+
+Patches
+I wouldn't officially say this is the best approach. It's conditional. There are cases where a modification you are making is just fixing a bug with Magento or a third party module. At least with non Magento Cloud sites, you can install the cweagans/composer-patches composer package (see link below), to gain the ability to patch composer installed modules pretty easily:
+
+Github - cweagans/composer-patches
+
+Pros
+
+Instead of creating an entire module with a preference/plugin to fix something, you could just create a patch if you know that the change should be there anyway
+If/when the original module vendor applies the fix and your patch no longer applies, it can be skipped from being applied automatically, or fail loudly in a development environment so you can address properly
+Cons
+
+If a vendor changes the files you are patching but does not introduce your same fix, your patch could no longer be applied
