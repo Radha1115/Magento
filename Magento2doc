@@ -1,3 +1,18 @@
+Types of sessions in magento 
+
+
+Diff between getModel() and getSingleton() in magento
+
+
+uses of radis cache and varnish cache.
+
+
+Diff between in magento 1 and Magento 2 
+
+
+
+
+
 Magento 2 Dependency Injection
 - A class depends on other classes.
 - Dependency Injection is to inject the dependency into the class from another source.
