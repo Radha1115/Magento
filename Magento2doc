@@ -106,7 +106,22 @@ Separation of Concerns
 
 EAV magento 2
 - EAV stands for Entity, Attribute and Value.
-- EAV is used because it is much more scalable than the usual normalised database structure. Developers can add attributes to any entity (product, category, customer, order etc) without modifying the core database structure. 
+- it is a technique that facilitates users to add unlimited columns to their table virtually 
+
+EAV module will creates 6 table in database 
+1) module
+2) module_datetime
+3) module_decimal
+4) module_int
+5) module_text
+6) module_varchar
+
+Difference between EAV & Flate table 
+- EAV database module fully in normalized form.
+- each columns value is stored in their respective data types tably which makes it more complex as they have to join 5-6 table even if you need only one detail in eav.
+
+- EAV is used because it is much more scalable than the usual normalised database structure. De
+velopers can add attributes to any entity (product, category, customer, order etc) without modifying the core database structure. 
 
 Entity: The entity represents Magento data items such as products, categories, customers and orders. Each entity (product, category, etc.) will have its own entity record in the database.
 Attribute: The attributes represent data items that belong to an entity. For example, the product entity has attributes such as name, price, status and many more.
