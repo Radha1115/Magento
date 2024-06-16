@@ -1,17 +1,51 @@
-Types of sessions in magento 
+*No, namespace is not mandatory while creating of custom module.
 
+Types of sessions in magento
+- Core/Session
+This is the most bare bones session. It give the basic "anonymous" data about the visitor (cookies, IP address, error messages.
+Mage_Core_Model_Session::getCookie()
+Mage_Core_Model_Session::addMessage()
+Mage_Core_Model_Session::useValidateRemoteAddr()
+
+- Customer/Session
+This object handles things related to the specific customer (logging in or out, name, id, email, the customer's group)
+Mage_Customer_Model_Session::getCustomerId()
+Mage_Customer_Model_Session::isLoggedIn()
+Mage_Customer_Model_Session::getCustomerGroupId()
+
+- Checkout/Session
+This stores information related to the quote, guest or not (cart totals, items, checkout progress)
+Mage_Checkout_Model_Session::getQuote()
+Mage_Checkout_Model_Session::setStepData()
+Mage_Checkout_Model_Session::getQuote()->getTotals()
+
+Each of the session models are extended from Mage_Core_Model_Session_Abstract, they just offer different functionality. There really isn't much to core/session. Most of it's functionality is inherited from the parent class that they all share.
+
+You can relate the customer/session to the checkout/session with their various methods.
+e.g.
+Mage::getSingleton('checkout/session')
+    ->setCustomer(Mage::getSingleton('customer/session')->getCustomer());
 
 Diff between getModel() and getSingleton() in magento
-
-
+- Mage::getModel() will always return a new Object for the given model:
+- Mage::getSingleton() will check whether the Object of the given model already exists and return that if it does. If it doesn't exist, it will create a new object of the given model and put in registry that it already exists. Next call will not return a new object but the existing one:
+------------------------------------------------------------------------------------------
+- getModel() : it creates a new object.
+- getSingleto() : it first checks the existence of object and if object doesn't extist, then it creates a new one.
+------------------------------------------------------------------------------------------
 uses of radis cache and varnish cache.
+- Caching is a helpful technique for storing frequently accessed data and serving it quickly, 
+- Magento Cache Management, both Redis and Varnish are used to improve your website's performance and scalability.
 
+    Redis offloads the database
+    Varnish offloads the entire application
+
+https://magento.stackexchange.com/questions/357244/whats-is-major-impact-when-implements-redis-cache-and-varnish-cache-on-magento-2
+https://medium.com/@elightwalk/what-is-the-difference-between-the-varnish-and-redis-cache-in-magento-performance-3c5c04a8345a
 
 Diff between in magento 1 and Magento 2 
-
-
-
-
+https://meetanshi.com/blog/magento-1-vs-magento-2-major-differences/
+https://www.mgt-commerce.com/blog/magento-1-vs-magento-2/
 
 Magento 2 Dependency Injection
 - A class depends on other classes.
@@ -119,7 +153,13 @@ EAV module will creates 6 table in database
 Difference between EAV & Flate table 
 - EAV database module fully in normalized form.
 - each columns value is stored in their respective data types tably which makes it more complex as they have to join 5-6 table even if you need only one detail in eav.
+- columns are called attributes
 
+- Flat : model uses just one table.
+- it is not normalized and uses more database space.
+- it is not good for dynamic requirements where you may have to add some more columns in future.
+- its performance is fast as it needs only one query instead of joining 5-6 table in flat model.
+- columns are called fields.
 - EAV is used because it is much more scalable than the usual normalised database structure. De
 velopers can add attributes to any entity (product, category, customer, order etc) without modifying the core database structure. 
 
