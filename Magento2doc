@@ -119,6 +119,10 @@ But use the factory for the interface, such as Magento\Catalog\Api\Data\ProductI
 Then use the repository->save() method to save it.
 Repositories do not come with methods to create a new entity, so in that case, you will need a factory.
 
+Factory Classes
+Factory is a design pattern that is used to create objects for all the classes instead of using new keyword . It was also used in magento 1 in the form of :
+Mage::getModel(“ClassName”) and Mage::getSingleton(“ClassName”) .
+
 Magento 2 viewModel
 - View model is class that we inject to phtml, so that require and related data could be access from it.
 - View Model helps us to avoid unnecessary overriding of the block class
