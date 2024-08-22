@@ -1,3 +1,27 @@
+what is magento 2
+order lifecycle
+magento components 
+magento magic methods
+Magento mode
+diff default & production mode
+magento product type
+diffe configurable & bundle prod
+how to add 3 column layout for homepage
+magento page layout 
+can we cancel order when it's on processing state.
+what is magento registry 
+what is di
+
+
+
+
+
+
+
+
+
+
+
 
 1) Diff c:c & c:f
 - The c:c cleans only the cache that Magento is actually using (doesn't clean disabled cache types). The c:f command cleans all the cache storage
